@@ -1,10 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {ThemeProvider} from 'styled-components/native';
+
+import Routes from './routes';
+
+import theme from './global/styles/theme';
 
 export default function App() {
   return (
-    <View>
-      <Text>Testando TypeScript</Text>
-    </View>
+    <ThemeProvider theme={theme}>
+      <NavigationContainer>
+        <Routes />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
