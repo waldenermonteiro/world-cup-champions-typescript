@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {FlatList} from 'react-native';
-import {CheckBox} from 'react-native-elements';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
+
 import Winner from './components/Winner';
 
-import {Container, Separator} from './styles';
+import {Container, ContainerCheckbox, Separator} from './styles';
 
 import IWinner from 'interfaces/IWinner';
 
@@ -22,11 +23,16 @@ export default function Winners() {
 
   return (
     <Container>
-      <CheckBox
-        title="View in cards"
-        checked={checked}
-        onPress={() => setChecked(!checked)}
-      />
+      <ContainerCheckbox>
+        <BouncyCheckbox
+          fillColor="gray"
+          unfillColor="#FFFFFF"
+          text="View in cards"
+          onPress={() => setChecked(!checked)}
+          isChecked={checked}
+        />
+      </ContainerCheckbox>
+
       <FlatList
         data={winnersState}
         keyExtractor={item => item.key}
